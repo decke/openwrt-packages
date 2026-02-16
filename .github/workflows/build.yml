@@ -30,4 +30,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.arch}}-${{ matrix.release }}/packages
-          path: bin/packages/${{ matrix.arch }}/packages/*.apk
+          path: bin/packages/${{ matrix.arch }}/*/*.apk
