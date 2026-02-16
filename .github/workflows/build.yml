@@ -30,4 +30,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.arch}}-${{ matrix.release }}
-          path: bin/packages/${{ matrix.arch }}/*/*.apk
+          path: bin/packages/${{ matrix.arch }}/bluelife/*.apk
