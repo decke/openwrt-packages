@@ -29,5 +29,5 @@ jobs:
       - name: Store packages
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.arch}}-${{ matrix.release }}/packages
+          name: ${{ matrix.arch}}-${{ matrix.release }}
           path: bin/packages/${{ matrix.arch }}/*/*.apk
