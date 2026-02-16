@@ -23,7 +23,7 @@ PKG_BUILD_FLAGS:=no-mips16
 GO_PKG:=github.com/decke/smtprelay
 
 include $(INCLUDE_DIR)/package.mk
-include ../feeds/packages/lang/golang/golang-package.mk
+include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 
 define Package/smtprelay
   SECTION:=net
