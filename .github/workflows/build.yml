@@ -16,20 +16,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name:
-        run: mkdir artifacts feed
+        with:
+          fetch-depth: 0
 
       - name: Build
         uses: openwrt/gh-action-sdk@main
         env:
           ARCH: ${{ matrix.arch }}-${{ matrix.release }}
-          ARTIFACTS_DIR: ${{ github.workspace }}/artifacts
-          FEED_DIR: ${{ github.workspace }}/feed
-          PACKAGES: speedtest-go
+          FEEDNAME: bluelife
+          PACKAGES: smtprelay
 
       - name: Store packages
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.arch}}-${{ matrix.release }}/packages
-          path: artifacts/bin/packages/${{ matrix.arch }}/packages/*.apk
+          path: bin/packages/${{ matrix.arch }}/packages/*.apk
