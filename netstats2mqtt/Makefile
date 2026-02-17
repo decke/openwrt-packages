@@ -8,8 +8,8 @@ PKG_NAME:=netstats2mqtt
 PKG_VERSION:=2026.02.17
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://codeberg.org/decke/netstats2mqtt/archive/v$(PKG_VERSION).tar.gz
+PKG_SOURCE:=v$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://codeberg.org/decke/netstats2mqtt/archive/
 PKG_HASH:=c6d6a7921127a3a54fbdcffc2a33145036b56a61f04441c063c0088ab6528860
 
 PKG_LICENSE:=MIT
