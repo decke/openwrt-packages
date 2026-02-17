@@ -37,5 +37,16 @@ define Package/smtprelay/description
   Simple Golang based SMTP relay/proxy server
 endef
 
+define Package/smtprelay/install
+  $(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
+
+  $(INSTALL_DIR) $(1)/usr/bin/
+  $(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/smtprelay $(1)/usr/bin/
+  $(INSTALL_DIR) $(1)/etc/smtprelay
+  $(INSTALL_CONF) ./files/smtprelay.ini.sample $(1)/etc/smtprelay/
+  $(INSTALL_DIR) $(1)/etc/init.d
+  $(INSTALL_BIN) ./files/smtprelay.init $(1)/etc/init.d/smtprelay
+endef
+
 $(eval $(call GoBinPackage,smtprelay))
 $(eval $(call BuildPackage,smtprelay))
