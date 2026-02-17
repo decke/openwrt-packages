@@ -2,7 +2,7 @@
 
 START=50
 USE_PROCD=1
-PROG=/usr/sbin/netstats2mqtt
+PROG=/usr/bin/netstats2mqtt
 
 start_service() {
 	local mqtt interfaces

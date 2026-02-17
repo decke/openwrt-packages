@@ -42,12 +42,14 @@ define Package/netstats2mqtt/conffiles
 endef
 
 define Package/netstats2mqtt/install
+  $(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
+
+  $(INSTALL_DIR) $(1)/usr/bin/
+  $(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/netstats2mqtt $(1)/usr/bin/
   $(INSTALL_DIR) $(1)/etc/config
   $(INSTALL_CONF) ./files/netstats2mqtt.config $(1)/etc/config/netstats2mqtt
   $(INSTALL_DIR) $(1)/etc/init.d
   $(INSTALL_BIN) ./files/netstats2mqtt.init $(1)/etc/init.d/netstats2mqtt
-#  $(INSTALL_DIR) $(1)/usr/sbin/
-#  $(INSTALL_BIN) $(PKG_BUILD_DIR)/netstats2mqtt $(1)/usr/sbin/
 endef
 
 $(eval $(call GoBinPackage,netstats2mqtt))
