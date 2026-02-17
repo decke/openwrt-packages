@@ -26,26 +26,26 @@ include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 
 define Package/smtprelay
-  SECTION:=net
-  CATEGORY:=Network
-  TITLE:=Simple SMTP relay/proxy server
-  URL:=https://github.com/decke/smtprelay
-  DEPENDS:=$(GO_ARCH_DEPENDS) +ca-bundle
+	SECTION:=net
+	CATEGORY:=Network
+	TITLE:=Simple SMTP relay/proxy server
+	URL:=https://github.com/decke/smtprelay
+	DEPENDS:=$(GO_ARCH_DEPENDS) +ca-bundle
 endef
 
 define Package/smtprelay/description
-  Simple Golang based SMTP relay/proxy server
+	Simple Golang based SMTP relay/proxy server
 endef
 
 define Package/smtprelay/install
-  $(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
+	$(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
 
-  $(INSTALL_DIR) $(1)/usr/bin/
-  $(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/smtprelay $(1)/usr/bin/
-  $(INSTALL_DIR) $(1)/etc/smtprelay
-  $(INSTALL_CONF) ./files/smtprelay.ini.sample $(1)/etc/smtprelay/
-  $(INSTALL_DIR) $(1)/etc/init.d
-  $(INSTALL_BIN) ./files/smtprelay.init $(1)/etc/init.d/smtprelay
+	$(INSTALL_DIR) $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/smtprelay $(1)/usr/bin/
+	$(INSTALL_DIR) $(1)/etc/smtprelay
+	$(INSTALL_CONF) ./files/smtprelay.ini.sample $(1)/etc/smtprelay/
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/smtprelay.init $(1)/etc/init.d/smtprelay
 endef
 
 $(eval $(call GoBinPackage,smtprelay))

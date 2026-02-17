@@ -26,15 +26,15 @@ include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 
 define Package/netstats2mqtt
-  SECTION:=net
-  CATEGORY:=Network
-  TITLE:=Send interface traffic statistics to MQTT
-  URL:=https://codeberg.org/decke/netstats2mqtt
-  DEPENDS:=$(GO_ARCH_DEPENDS) +ca-bundle
+	SECTION:=net
+	CATEGORY:=Network
+	TITLE:=Send interface traffic statistics to MQTT
+	URL:=https://codeberg.org/decke/netstats2mqtt
+	DEPENDS:=$(GO_ARCH_DEPENDS) +ca-bundle
 endef
 
 define Package/netstats2mqtt/description
-  Send interface traffic statistics to MQTT
+	Send interface traffic statistics to MQTT
 endef
 
 define Package/netstats2mqtt/conffiles
@@ -42,14 +42,14 @@ define Package/netstats2mqtt/conffiles
 endef
 
 define Package/netstats2mqtt/install
-  $(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
+	$(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
 
-  $(INSTALL_DIR) $(1)/usr/bin/
-  $(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/netstats2mqtt $(1)/usr/bin/
-  $(INSTALL_DIR) $(1)/etc/config
-  $(INSTALL_CONF) ./files/netstats2mqtt.config $(1)/etc/config/netstats2mqtt
-  $(INSTALL_DIR) $(1)/etc/init.d
-  $(INSTALL_BIN) ./files/netstats2mqtt.init $(1)/etc/init.d/netstats2mqtt
+	$(INSTALL_DIR) $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/netstats2mqtt $(1)/usr/bin/
+	$(INSTALL_DIR) $(1)/etc/config
+	$(INSTALL_CONF) ./files/netstats2mqtt.config $(1)/etc/config/netstats2mqtt
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/netstats2mqtt.init $(1)/etc/init.d/netstats2mqtt
 endef
 
 $(eval $(call GoBinPackage,netstats2mqtt))
