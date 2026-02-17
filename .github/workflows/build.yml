@@ -24,7 +24,7 @@ jobs:
         env:
           ARCH: ${{ matrix.arch }}-${{ matrix.release }}
           FEEDNAME: bluelife
-          PACKAGES: smtprelay
+          PACKAGES: smtprelay netstats2mqtt
 
       - name: Store packages
         uses: actions/upload-artifact@v4
